@@ -5,6 +5,18 @@ interactive. Visit the project's website at <https://superset.incubator.apache.o
 
 ## Things you should know
 
+You should set the following env vars.
+
+```{bash}
+FLASK_APP=superset
+SECRET_KEY=<SOME SECRET KEY>
+DATABASE_URL=<SOME DATABASE URL>
+```
+
+It's also worth noting that the `DATABASE_URL` is the database that will store
+the superset metadata. You'll get to define the connection string for your
+ACTUAL datasource once you log in.
+
 ### After deployment
 
 - Superset will be accessible at `YOURAPPNAME.herokuapp.com`.
@@ -13,9 +25,6 @@ interactive. Visit the project's website at <https://superset.incubator.apache.o
 ```{bash}
 # Initialize the database
 superset db upgrade
-
-# this should have been already been set from the heroku dashboard
-export FLASK_APP=superset
 
 # Create an admin user
 superset fab create-admin
